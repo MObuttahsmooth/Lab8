@@ -22,6 +22,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 #include "..\ValvanoWareTM4C123\ValvanoWareTM4C123\inc\tm4c123gh6pm.h"
 
 #include "pll.h"
@@ -36,7 +37,7 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-char Fetch[] = "GET /data/2.5/weather?q=Austin%20Texas&APPID=1234567890abcdef1234567890abcdef HTTP/1.1\r\nHost:api.openweathermap.org\r\n\r\n";
+char Fetch[] = "GET /data/2.5/weather?q=Austin%20Texas&APPID=1bc54f645c5f1c75e681c102ed4bbca4&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n";
 // 1) go to http://openweathermap.org/appid#use 
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
@@ -47,7 +48,7 @@ int main(void){
   LED_Init();  
   Output_Init();       // UART0 only used for debugging
   printf("\n\r-----------\n\rSystem starting...\n\r");
-  ESP8266_Init(9600);      // connect to access point, set up as client
+  ESP8266_Init(115200);      // connect to access point, set up as client
   ESP8266_GetVersionNumber();
   while(1){
     ESP8266_GetStatus();

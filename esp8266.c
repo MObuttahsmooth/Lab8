@@ -57,8 +57,8 @@ ESP8266    TM4C123
 #include "esp8266.h"
 #include "UART.h"
 // Access point parameters
-#define SSID_NAME  "ValvanoAP"
-#define PASSKEY    "12345678"
+#define SSID_NAME  "OwensMatthewiPhone"
+#define PASSKEY    "445Lmorh"
 //#define SEC_TYPE   ESP8266_ENCRYPT_MODE_WPA2_PSK
 
 #define BUFFER_SIZE 1024
@@ -268,7 +268,7 @@ void ESP8266_DisableRXInterrupt(void){
 void ESP8266_PrintChar(char input){
   while((UART1_FR_R&UART_FR_TXFF) != 0) {};
   UART1_DR_R = input;
-//  UART_OutChar(input); // echo debugging
+  UART_OutChar(input); // echo debugging
 }
 //----------ESP8266FIFOtoBuffer----------
 // - copies uart fifo to RXBuffer, using a circular MACQ to store the last data
@@ -346,6 +346,7 @@ void DelayMsSearching(uint32_t n){
 // Inputs: baud rate: tested with 9600 and 115200
 // Outputs: none
 void ESP8266_Init(uint32_t baud){
+	DelayMs(100);
   ESP8266_InitUART(baud,true); // baud rate, no echo to UART0
   ESP8266_EnableRXInterrupt();
   SearchLooking = false;
@@ -356,9 +357,11 @@ void ESP8266_Init(uint32_t baud){
 // step 1: AT+RST reset module
   printf("ESP8266 Initialization:\n\r");
   ESP8266_EchoResponse = true; // debugging
-  if(ESP8266_Reset()==0){ 
+ 
+	if(ESP8266_Reset()==0){ 
     printf("Reset failure, could not reset\n\r"); while(1){};
   }
+	
 //  ESP8266SendCommand("AT+UART_CUR=115200,8,1,0,0\r\n");
 //  UART_InChar();
 
@@ -404,6 +407,7 @@ int ESP8266_Reset(){int try=MAXTRY;
     ESP8266SendCommand("AT+RST\r\n");
     DelayMsSearching(500);
     if(SearchFound) return 1; // success
+		//return 1;
     try--;
   }
   return 0; // fail
