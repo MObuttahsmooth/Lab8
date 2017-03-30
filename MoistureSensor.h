@@ -3,4 +3,8 @@
 // Matt Owens & Rebecca Ho
 // 3/29/17
 
-void reportMoisture(void);
+void initMoistureSensor(void);
+
+void calibrateMoistureSensor(void);
+
+void reportMoistureStatus(void);
