@@ -6,3 +6,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "../ValvanoWareTM4C123/ValvanoWareTM4C123/inc/tm4c123gh6pm.h"
+
+//Continuously(?) called in main
+void reportMoisture(){
+	//Read input from moisture sensor
+	//Output moisture to server
+	//If threshold crossed, play song
+}
