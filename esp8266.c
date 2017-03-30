@@ -53,7 +53,7 @@ ESP8266    TM4C123
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
-#include "../inc/tm4c123gh6pm.h"
+#include "..\ValvanoWareTM4C123\ValvanoWareTM4C123\inc\tm4c123gh6pm.h"
 #include "esp8266.h"
 #include "UART.h"
 // Access point parameters

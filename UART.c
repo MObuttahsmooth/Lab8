@@ -28,7 +28,7 @@
 // U0Rx (VCP receive) connected to PA0
 // U0Tx (VCP transmit) connected to PA1
 #include <stdint.h>
-#include "../inc/tm4c123gh6pm.h"
+#include "..\ValvanoWareTM4C123\ValvanoWareTM4C123\inc\tm4c123gh6pm.h"
 #include <stdio.h>
 #include "FIFO.h"
 #include "UART.h"

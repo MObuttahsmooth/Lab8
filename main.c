@@ -22,7 +22,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "../inc/tm4c123gh6pm.h"
+#include "..\ValvanoWareTM4C123\ValvanoWareTM4C123\inc\tm4c123gh6pm.h"
 
 #include "pll.h"
 #include "UART.h"
